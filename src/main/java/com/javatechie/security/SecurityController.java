@@ -8,9 +8,19 @@ import java.security.*;
 @RequestMapping("/secure/rest")
 public class SecurityController {
 
-    @GetMapping("/hello")
-    public String hello(Principal principal){
-        return "Hello "+principal.getName();
+    @GetMapping("/")
+    public String home(){
+        return "Hello Unauthenticated user";
+    }
+
+    @GetMapping("/user")
+    public String user(Principal principal){
+        return "Hello user : "+principal.getName();
+    }
+
+    @GetMapping("/admin")
+    public String admin(Principal principal){
+        return "Hello admin : "+principal.getName();
     }
 
 }
